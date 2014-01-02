@@ -1,0 +1,7 @@
+[user]
+	name = omardelarosa
+	email = thedelarosa@gmail.com
+[credential]
+	helper = cache
+[core]
+	editor = subl
