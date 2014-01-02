@@ -14,7 +14,7 @@ dir=~/Dropbox/Code/dotfiles
 olddir=~/dotfiles_old			       
 
 # list of files/folders to symlink in homedir
-files="vimrc vim bash_profile tmux.conf herrie gitconfig" 
+files="vimrc bash_profile tmux.conf herrie gitconfig" 
 
 ##########
 
