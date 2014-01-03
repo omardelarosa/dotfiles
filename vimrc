@@ -5,12 +5,17 @@ filetype off                  " required!
 :set autoindent
 :set smartindent
 
+" show line numbers
+:set number
+
 " key bindings
 :map <F7> :bp <CR>
 :map <F6> :bn <CR>
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+"colorscheme monokai
 
 " let Vundle manage Vundle
 " required! 
@@ -43,3 +48,5 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 
+" added zenburn color theme
+":colorscheme zenburn

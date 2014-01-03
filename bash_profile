@@ -78,10 +78,10 @@ function parse_git_branch() {
 }
 
 # Prompt 1: "username@hostname:"
-PS1="\e[34;40m\u\e[0m@\e[31;40m\h\e[0m:"
+PS1="\[$(tput setaf 1)\]\e[\e[34;40m\u\e[m@\e[31;40m\h\e[m:\]"
 
 # Prompt 2: "path/to/where/you/are"
-PS1="$PS1\e[32;40m\w\e[0m"
+PS1="$PS1\e[32;40m\w\e[m"
 
 # Prompt 3: "(gitbranch)"
 PS1="$PS1 \$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[\033[1;33m\]\$(parse_git_branch)\[\033[1;37m\]\n\$ \[$(tput sgr0)\]"
@@ -113,3 +113,7 @@ function wdi() {
 }
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+if [[ ! $TERM =~ screen ]]; then
+  exec tmux
+fi
