@@ -114,6 +114,10 @@ function wdi() {
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# Defaults to tmux.
+
+# WARNING: This might cause issues with RubyMotion iOS simulator
+
 if [[ ! $TERM =~ screen ]]; then
-  exec tmux
+  tmux
 fi
