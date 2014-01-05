@@ -34,19 +34,26 @@ alias tnws="coffee /usr/local/bin/tnws.coffee"
 alias pyserv="python -m SimpleHTTPServer"
 
 ### Folder Shortcuts
-alias cdwdi5="cd /Users/omardelarosa/Dropbox/Code/WDI/wdi"
-alias cdwdi7="cd /Users/omardelarosa/Dropbox/Code/WDI/wdi7"
-alias cdwdi7work="cd /Users/omardelarosa/Dropbox/Code/WDI/wdi7/WDI_NYC_7_Work"
-alias cdwdi7main="cd /Users/omardelarosa/Dropbox/Code/WDI/wdi7/WDI_NYC_7"
-alias cdwdi7curriculum="cd /Users/omardelarosa/Dropbox/Code/WDI/wdi7/WDI_Curriculum"
-alias cdwdidocs="cd /Users/omardelarosa/Dropbox/Docs/WDI"
-alias cddrop="cd /Users/omardelarosa/Dropbox/"
-alias cdruby="cd /Users/omardelarosa/Dropbox/Code/Ruby/"
-alias cdscala="cd /Users/omardelarosa/Dropbox/Code/Scala/"
-alias cdcode="cd /Users/omardelarosa/Dropbox/Code/"
-alias cddl="cd /Users/omardelarosa/Downloads"
-alias cdsites="cd /Users/omardelarosa/Sites"
-alias cddesktop="cd /Users/omardelarosa/Desktop"
+export DROPBOX_PATH=$HOME/Dropbox
+export CODE_PATH=$DROPBOX_PATH/Code
+export WDI_PATH=$CODE_PATH/WDI
+export BREW_PATH=/usr/local/Cellar
+
+alias cdwdi5="cd $WDI_PATH/wdi"
+alias cdwdi7="cd $WDI_PATH/wdi7"
+alias cdwdi7work="cd $WDI_PATH/wdi7/WDI_NYC_7_Work"
+alias cdwdi7main="cd $WDI_PATH/wdi7/WDI_NYC_7"
+alias cdwdi7curriculum="cd $WDI_PATH/WDI_Curriculum"
+alias cdwdidocs="cd $WDI_PATH"
+alias cddrop="cd $DROPBOX_PATH"
+alias cdruby="cd $CODE_PATH/Ruby"
+alias cdscala="cd $CODE_PATH/Scala"
+alias cdcode="cd $CODE_PATH"
+alias cddl="cd $HOME/Downloads"
+alias cdsites="cd $HOME/Sites"
+alias cddesktop="cd $HOME/Desktop"
+
+alias dotfiles="cd $CODE_PATH/dotfiles"
 
 ### RVM shortcuts
 alias rvm193="rvm use ruby-1.9.3-p392"
@@ -96,7 +103,7 @@ PS1="$PS1 \$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[\033[1;33m\]\$
 function wdi() {
   local WEEK_NUM=$1
   local DAY_NUM=$2
-  local BASE_PATH="/Users/omardelarosa/Dropbox/Code/WDI/wdi-lambda/WDI_NYC_Lambda"
+  local BASE_PATH="$WDI_PATH/wdi-lambda/WDI_NYC_Lambda"
   if [ "$WEEK_NUM" != "" ] && [ "$DAY_NUM" != "" ]
   then
     local WEEK_STRING="/w$WEEK_NUM"
@@ -105,10 +112,10 @@ function wdi() {
   	then 
       cd $BASE_PATH$WEEK_STRING$DAY_STRING;
     else
-      cd $BASE_PATH
+      cd $WDI_PATH
     fi
   else
-    cd $BASE_PATH
+    cd $WDI_PATH
   fi
 }
 
@@ -118,6 +125,6 @@ function wdi() {
 
 # WARNING: This might cause issues with RubyMotion iOS simulator
 
-if [[ ! $TERM =~ screen ]]; then
-  tmux
-fi
+#if [[ ! $TERM =~ screen ]]; then
+#  tmux
+#fi

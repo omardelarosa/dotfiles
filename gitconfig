@@ -4,4 +4,4 @@
 [credential]
 	helper = cache
 [core]
-	editor = subl
+	editor = vim
