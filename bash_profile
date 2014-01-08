@@ -112,10 +112,16 @@ function wdi() {
   	then 
       cd $BASE_PATH$WEEK_STRING$DAY_STRING;
     else
-      cd $WDI_PATH
+      cd $WDI_PATH/wdi-lambda/
     fi
   else
-    cd $WDI_PATH
+    if [ "$WEEK_NUM" == "class" ]
+      then cd $WDI_PATH/wdi-lambda/WDI_NYC_Lambda
+    elif [ "$WEEK_NUM" == "curriculum" ]
+      then cd $WDI_PATH/wdi-lambda/WDI_Curriculum
+   else 
+      cd $WDI_PATH/wdi-lambda/
+    fi
   fi
 }
 
