@@ -15,6 +15,10 @@ if [ -f ~/.aws ]; then
     source ~/.aws
 fi
 
+if [ -f ~/.other_shortcuts ]; then
+  source ~/.other_shortcuts
+fi
+
 ### Command Shortcuts
 alias ll="ls -al"
 alias cpdir="cp -R"
@@ -52,7 +56,7 @@ alias cdcode="cd $CODE_PATH"
 alias cddl="cd $HOME/Downloads"
 alias cdsites="cd $HOME/Sites"
 alias cddesktop="cd $HOME/Desktop"
-
+alias rpissh="ssh pi@192.168.0.6"
 alias dotfiles="cd $CODE_PATH/dotfiles"
 
 ### RVM shortcuts
@@ -97,6 +101,20 @@ PS1="$PS1 \$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[\033[1;33m\]\$
 ##
 
 #### General Assemb.ly/WDI Stuff
+
+# Ethan's JS loader
+
+function wget_js(){
+
+  wget http://code.jquery.com/jquery-1.11.0.js
+  wget http://underscorejs.org/underscore.js
+  wget http://backbonejs.org/backbone.js
+  wget https://raw.github.com/visionmedia/mocha/master/mocha.js
+  wget https://raw.github.com/visionmedia/should.js/master/should.js
+  mv jquery-1.11.0.js jquery.js
+
+}
+
 
 # A function that jumps to a particular wk/day folder in the class repo
 
