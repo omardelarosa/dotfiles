@@ -1,5 +1,8 @@
 PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres93.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
 
+# adding WDI command line tools dir
+export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
+
 # MySQL fix for python
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/mysql/lib/ 
 
@@ -152,3 +155,7 @@ function wdi() {
 #if [[ ! $TERM =~ screen ]]; then
 #  tmux
 #fi
+
+# Global Go Code Path
+export GOPATH=/Users/omardelarosa/Dropbox/Code/Go
+export PATH=$PATH:$GOPATH/bin
