@@ -1,13 +1,13 @@
-PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres93.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
+PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
 
 # adding WDI command line tools dir
 export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
 
 # MySQL fix for python
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/mysql/lib/ 
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/ 
 
 # Mopidy Python Fix
-export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
+# export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
 
 ### load environment vars
 if [ -f ~/.env ]; then 
@@ -124,7 +124,7 @@ function wget_js(){
 function wdi() {
   local WEEK_NUM=$1
   local DAY_NUM=$2
-  local BASE_PATH="$WDI_PATH/wdi-lambda/WDI_NYC_Lambda"
+  local BASE_PATH="$WDI_PATH/wdi-string"
   if [ "$WEEK_NUM" != "" ] && [ "$DAY_NUM" != "" ]
   then
     local WEEK_STRING="/w$WEEK_NUM"
@@ -133,15 +133,15 @@ function wdi() {
   	then 
       cd $BASE_PATH$WEEK_STRING$DAY_STRING;
     else
-      cd $WDI_PATH/wdi-lambda/
+      cd $BASE_PATH
     fi
   else
     if [ "$WEEK_NUM" == "class" ]
-      then cd $WDI_PATH/wdi-lambda/WDI_NYC_Lambda
+      then cd $BASE_PATH
     elif [ "$WEEK_NUM" == "curriculum" ]
-      then cd $WDI_PATH/wdi-lambda/WDI_Curriculum
+      then cd $WDI_PATH/wdi-next/WDI_Curriculum
    else 
-      cd $WDI_PATH/wdi-lambda/
+      cd $BASE_PATH
     fi
   fi
 }
@@ -159,3 +159,10 @@ function wdi() {
 # Global Go Code Path
 export GOPATH=/Users/omardelarosa/Dropbox/Code/Go
 export PATH=$PATH:$GOPATH/bin
+
+# SML/NJ PATH inclusion
+export PATH=/usr/local/Cellar/smlnj/110.76/bin:$PATH
+
+# Node.JS PATH inclusion
+export NODE_PATH=/usr/local/lib/node
+export PATH=/usr/local/share/npm/bin:$PATH
