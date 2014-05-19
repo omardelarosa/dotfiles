@@ -12,30 +12,47 @@ filetype off                  " required!
 :map <F7> :bp <CR>
 :map <F6> :bn <CR>
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+"Plugings go after this
 
 "colorscheme monokai
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
 "
 " original repos on GitHub
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-rails.git'
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 " non-GitHub repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " Ruby Syntax Highlighting
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'scrooloose/nerdtree'
 
+" Plugins go before this
+call vundle#end()            " required
+
+
+" Load NERDTree on start"
+
+" always load ... "
+" autocmd vimenter * NERDTree "
+
+" only load if no file specified  ... "
+autocmd vimenter * if !argc() | NERDTree | endif
+
+" Toggle Nerdtree with Ctrl+n"
+map <C-n> :NERDTreeToggle<CR>
 
 filetype plugin indent on     " required!
 "
