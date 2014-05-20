@@ -130,7 +130,7 @@ function wdi() {
     local WEEK_STRING="/w$WEEK_NUM"
     local DAY_STRING="/d$DAY_NUM"
     if [ -e $BASE_PATH$WEEK_STRING$DAY_STRING ]
-  	then 
+    then 
       cd $BASE_PATH$WEEK_STRING$DAY_STRING;
     else
       cd $BASE_PATH

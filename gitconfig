@@ -1,7 +1,10 @@
 [user]
 	name = omardelarosa
 	email = thedelarosa@gmail.com
-[credential]
-	helper = cache
+[color]
+  ui = always
 [core]
-	editor = vim
+  editor = subl -w
+  excludesfile = ~/.gitignore_global
+[commit]
+  template = ~/.gitmessage.txt
