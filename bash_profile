@@ -34,6 +34,11 @@ alias setbash="source ~/.bash_profile"
 alias getenv="vim ~/.env"
 
 
+### JSON tools
+
+### requires 'underscore-cli' for node
+alias json="underscore print --color"
+
 ### Launch Tiny Node Webserver
 alias tnws="coffee /usr/local/bin/tnws.coffee"
 
