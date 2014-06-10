@@ -8,3 +8,8 @@
   excludesfile = ~/.gitignore_global
 [commit]
   template = ~/.gitmessage.txt
+[alias]
+  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(red)'
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(red)'
+  lg = !"git lg1"
+  difflist = diff --name-only --diff-filter=U
