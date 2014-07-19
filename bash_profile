@@ -1,7 +1,8 @@
 ### ENV Variables
 
 ### DB shortcuts
-alias db_connect="psql -h $PGHOST -p $PG_PORT -U $PG_USER -W -d $PG_DB_NAME
+alias db_connect="psql -h $PGHOST -p $PG_PORT -U $PG_USER -W -d $PG_DB_NAME"
+
 ### Command Shortcuts
 alias ll="ls -al"
 alias cpdir="cp -R"
@@ -51,7 +52,7 @@ PS1="\[$(tput setaf 1)\]\e[\e[34;40m\u\e[m@\e[31;40m\h\e[m:\]"
 # Prompt 2: "path/to/where/you/are"
 PS1="$PS1\e[32;40m\w\e[m"
 
-# Prompt 3: "(gitbranch)"
+# Prompt 3: "gitbranch"
 PS1="$PS1 \$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[\033[1;33m\]\$(parse_git_branch)\[\033[1;37m\]\n\$ \[$(tput sgr0)\]"
 
 

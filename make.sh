@@ -8,7 +8,7 @@
 ########## Variables
  
 # dotfiles directory
-dir=~/Dropbox/Code/dotfiles 
+dir=~/dotfiles 
 
 # old dotfiles backup directory
 olddir=~/dotfiles_old			       
