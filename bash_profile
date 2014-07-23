@@ -1,7 +1,7 @@
 ### ENV Variables
 
 ### DB shortcuts
-alias db_connect="psql -h $PGHOST -p $PG_PORT -U $PG_USER -W -d $PG_DB_NAME"
+alias db_connect="psql -h $PG_HOST -p $PG_PORT -U $PG_USER -W -d $PG_DB_NAME"
 
 ### Command Shortcuts
 alias ll="ls -al"
