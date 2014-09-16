@@ -39,6 +39,12 @@ alias getenv="vim ~/.env"
 ### requires 'underscore-cli' for node
 alias json="underscore print --color"
 
+function pjson() {
+  if [[ $1 != "" ]]; then
+    cat $1 | json
+  fi
+}
+
 ### Launch Tiny Node Webserver
 alias tnws="coffee /usr/local/bin/tnws.coffee"
 
@@ -162,7 +168,8 @@ function wdi() {
 #fi
 
 # Global Go Code Path
-export GOPATH=/Users/omardelarosa/Dropbox/Code/Go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Dropbox/Code/Go
 export PATH=$PATH:$GOPATH/bin
 
 # SML/NJ PATH inclusion
