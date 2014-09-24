@@ -167,6 +167,10 @@ function wdi() {
 #  tmux
 #fi
 
+# Python Stuff
+export WORKON_HOME=/Users/odelarosa/Dropbox/Code/Python/envs
+source /usr/local/bin/virtualenvwrapper.sh
+
 # Global Go Code Path
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/Dropbox/Code/Go
