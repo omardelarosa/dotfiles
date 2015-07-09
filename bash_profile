@@ -3,6 +3,9 @@ PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/Mac
 # adding WDI command line tools dir
 export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
 
+# adding home bin to path
+export PATH=$HOME/bin:$PATH
+
 # MySQL fix for python
 # export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/ 
 
@@ -77,12 +80,13 @@ alias dotfiles="cd $CODE_PATH/dotfiles"
 alias rvm193="rvm use ruby-1.9.3-p392"
 alias rvm2="rvm use ruby-2.0.0-p247"
 
-### Github shortcuts
+### Git shortcuts
 alias gcheck="git checkout"
 alias gadd="git add -A"
 alias gstat="git status"
 alias gcom="git commit -m"
 alias gpom="git push origin master"
+alias plog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --color"
 
 ## Misc. Utilities
 
@@ -163,12 +167,15 @@ function wdi() {
 
 # WARNING: This might cause issues with RubyMotion iOS simulator
 
+alias gettmux="vim ~/.tmux.conf"
+alias settmux="tmux source-file ~/.tmux.conf"
+
 #if [[ ! $TERM =~ screen ]]; then
 #  tmux
 #fi
 
 # Python Stuff
-export WORKON_HOME=/Users/odelarosa/Dropbox/Code/Python/envs
+export WORKON_HOME="$HOME/Dropbox/Code/Python/envs"
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Global Go Code Path
@@ -182,6 +189,8 @@ export PATH=/usr/local/Cellar/smlnj/110.76/bin:$PATH
 # Node.JS PATH inclusion
 export NODE_PATH=/usr/local/lib/node
 export PATH=/usr/local/share/npm/bin:$PATH
+# Source NVM
+. ~/.nvm/nvm.sh
 
 # RBENV stuff
 export PATH="$HOME/.rbenv/bin:$PATH"

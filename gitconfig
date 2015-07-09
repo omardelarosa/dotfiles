@@ -5,7 +5,7 @@
   ui = true
 [core]
   editor = subl -w
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/odelarosa/.gitignore_global
 [commit]
   template = ~/.gitmessage.txt
 [alias]
@@ -15,3 +15,9 @@
   difflist = diff --name-only --diff-filter=U
 [merge]
 	renamelimit = 7000
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
