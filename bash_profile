@@ -193,5 +193,5 @@ export PATH=/usr/local/share/npm/bin:$PATH
 . ~/.nvm/nvm.sh
 
 # RBENV stuff
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
