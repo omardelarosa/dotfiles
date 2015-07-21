@@ -1,18 +1,29 @@
 set shiftwidth=2 softtabstop=2
 set nocompatible              " be iMproved
 filetype off                  " required!
-:syntax on
-:set autoindent
-:set smartindent
+syntax on
+set autoindent
+set smartindent
+set encoding=utf-8
 
 " show line numbers
-:set number
+set number
 
 " key bindings
-:map <F7> :bp <CR>
-:map <F6> :bn <CR>
+map <F7> :bp <CR>
+map <F6> :bn <CR>
+
+" Incremental Search
+set incsearch
+set hlsearch
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" Prevents Git issues with Vundle
+let $GIT_SSL_NO_VERIFY = 'true'
 
 call vundle#begin()
 "Plugings go after this
@@ -38,6 +49,15 @@ Plugin 'FuzzyFinder'
 " Ruby Syntax Highlighting
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
+
+" JavaScript Syntax Highlight
+Plugin 'pangloss/vim-javascript'
+
+" Ctrl+P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" the silver searcher
+let g:ackprg = 'ag --vimgrep'
 
 " Plugins go before this
 call vundle#end()            " required
@@ -67,3 +87,14 @@ filetype plugin indent on     " required!
 
 " added zenburn color theme
 ":colorscheme zenburn
+
+" Ag command
+set runtimepath^=~/.vim/bundle/ag
+
+" Statusline Customizations
+set laststatus=2
+set ambiwidth=single
+set noshowmode
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
