@@ -20,6 +20,9 @@ set hlsearch
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+" Autoreads the file on changes
+set autoread
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " Prevents Git issues with Vundle
@@ -44,20 +47,29 @@ Plugin 'tpope/vim-rails.git'
 " vim-scripts repos
 Plugin 'L9'
 Plugin 'FuzzyFinder'
+Plugin 'ack.vim'
 " non-GitHub repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " Ruby Syntax Highlighting
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
-
+Plugin 'nerdtree-ack'
 " JavaScript Syntax Highlight
 Plugin 'pangloss/vim-javascript'
 
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+" do not switch buffer if file already open
+let g:ctrlp_switch_buffer = 'Et'
+" Do not open new window if able
+let g:ctrlp_reuse_window = 'netrw'
+" Determines root of search to be first parent with .git, etc
+let g:ctrlp_working_path_mode = 'ra'
+" Enable/disable per-session caching
+" let g:ctrlp_use_caching = 1
 
-" the silver searcher
-let g:ackprg = 'ag --vimgrep'
+" Enable/disable cross-session caching
+let g:ctrlp_clear_cache_on_exit = 1
 
 " Plugins go before this
 call vundle#end()            " required
@@ -88,8 +100,9 @@ filetype plugin indent on     " required!
 " added zenburn color theme
 ":colorscheme zenburn
 
-" Ag command
-set runtimepath^=~/.vim/bundle/ag
+" Ack command
+let g:ackprg = 'ag --vimgrep'
+
 
 " Statusline Customizations
 set laststatus=2
