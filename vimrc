@@ -8,6 +8,8 @@ set encoding=utf-8
 
 " show line numbers
 set number
+" toggle line numbers
+map <C-T><C-T> :set invnumber<CR>
 
 " key bindings
 map <F7> :bp <CR>
@@ -57,6 +59,14 @@ Plugin 'nerdtree-ack'
 " JavaScript Syntax Highlight
 Plugin 'pangloss/vim-javascript'
 
+Plugin 'Syntastic'
+" Syntastic options
+let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 " do not switch buffer if file already open
@@ -103,7 +113,22 @@ filetype plugin indent on     " required!
 " Ack command
 let g:ackprg = 'ag --vimgrep'
 
+" always split windows vertically
+" via: https://www.reddit.com/r/vim/comments/2irn8j/vertical_split_by_default/
 
+set splitright
+set diffopt+=vertical
+silent! set splitvertical
+if v:errmsg != ''
+  cabbrev split vert split
+  cabbrev hsplit split
+  cabbrev help vert help
+  noremap <C-w>] :vert botright wincmd ]<CR>
+  noremap <C-w><C-]> :vert botright wincmd ]<CR>
+else
+  cabbrev hsplit hor split
+endif
+ 
 " Statusline Customizations
 set laststatus=2
 set ambiwidth=single
