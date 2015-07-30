@@ -1,11 +1,11 @@
 [user]
-	name = omardelarosa
-	email = thedelarosa@gmail.com
+  name = omardelarosa
+  email = thedelarosa@gmail.com
 [color]
   ui = true
 [core]
-  editor = subl -w
-	excludesfile = /Users/odelarosa/.gitignore_global
+  editor = vim
+  excludesfile = /Users/odelarosa/.gitignore_global
 [commit]
   template = ~/.gitmessage.txt
 [alias]
@@ -14,10 +14,9 @@
   lg = !"git lg1"
   difflist = diff --name-only --diff-filter=U
 [merge]
-	renamelimit = 7000
+  renamelimit = 7000
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true

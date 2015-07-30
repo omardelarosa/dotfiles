@@ -58,7 +58,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 " JavaScript Syntax Highlight
 Plugin 'pangloss/vim-javascript'
-
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -66,6 +66,8 @@ let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': '[possibly useless use of a variable in void context|interpreted as argument prefix]'}
 
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -84,8 +86,9 @@ let g:ctrlp_clear_cache_on_exit = 1
 " Plugins go before this
 call vundle#end()            " required
 
+" NERDTree Options
+let NERDTreeMouseMode=2
 
-" Load NERDTree on start"
 
 " always load ... "
 " autocmd vimenter * NERDTree "
@@ -95,7 +98,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 
 " Toggle Nerdtree with Ctrl+n"
 map <C-n> :NERDTreeToggle<CR>
-
+syntax enable
 filetype plugin indent on     " required!
 "
 " Brief help
@@ -128,7 +131,15 @@ if v:errmsg != ''
 else
   cabbrev hsplit hor split
 endif
- 
+
+" Set file type to language
+if has("syntax")
+  syntax on
+  filetype on
+  au BufNewFile,BufRead *.jq,*.es,*.jsx set filetype=javascript
+  au BufNewFile,BufRead *.coffee set filetype=coffee
+endif
+
 " Statusline Customizations
 set laststatus=2
 set ambiwidth=single
