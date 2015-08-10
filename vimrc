@@ -1,4 +1,4 @@
-set shiftwidth=2 softtabstop=2
+set shiftwidth=2 softtabstop=2 expandtab smarttab
 set nocompatible              " be iMproved
 filetype off                  " required!
 syntax on
@@ -50,6 +50,7 @@ Plugin 'tpope/vim-rails.git'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'ack.vim'
+Plugin 'rking/ag.vim'
 " non-GitHub repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " Ruby Syntax Highlighting
@@ -71,6 +72,9 @@ let g:syntastic_eruby_ruby_quiet_messages =
 
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+" prevent Ctrl+P from splitting windows and play better with NERDTree
+let g:ctrlp_dont_split = 'NERD_tree_2'
+
 " do not switch buffer if file already open
 let g:ctrlp_switch_buffer = 'Et'
 " Do not open new window if able

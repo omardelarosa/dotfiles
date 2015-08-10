@@ -3,4 +3,6 @@
 --ignore-dir=vendor
 --ignore-dir=.git
 --ignore-dir=node_modules
+--ignore-dir=public/assets
 --sort-files
+

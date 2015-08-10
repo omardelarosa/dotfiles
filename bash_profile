@@ -36,6 +36,8 @@ alias setbash="source ~/.bash_profile"
 ### get env vars quickly
 alias getenv="vim ~/.env"
 
+### get vimrc quickly
+alias getvim="vim ~/.vimrc"
 
 ### JSON tools
 
