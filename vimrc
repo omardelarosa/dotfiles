@@ -19,6 +19,11 @@ map <F6> :bn <CR>
 set incsearch
 set hlsearch
 
+" Mouse Scrolling
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
@@ -57,6 +62,7 @@ Plugin 'rking/ag.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
+Plugin 'commentary.vim'
 " JavaScript Syntax Highlight
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
