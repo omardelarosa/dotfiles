@@ -39,14 +39,25 @@ alias getenv="vim ~/.env"
 ### get vimrc quickly
 alias getvim="vim ~/.vimrc"
 
+### spin up ubuntu linux via docker
+alias getlinux="docker run -i -t ubuntu /bin/bash"
+
 ### JSON tools
 
-### requires 'underscore-cli' for node
-alias json="underscore print --color"
-
 function pjson() {
+  
+  # use underscore-cli if available
+  if (type underscore &> /dev/null); then
+    local json="underscore print --color"
+  else
+  # use python json.tool if not
+    local json="python -m json.tool"
+  fi
+  
   if [[ $1 != "" ]]; then
-    cat $1 | json
+    cat $1 | $json
+  else
+    $json
   fi
 }
 
@@ -191,8 +202,11 @@ export PATH=/usr/local/Cellar/smlnj/110.76/bin:$PATH
 # Node.JS PATH inclusion
 export NODE_PATH=/usr/local/lib/node
 export PATH=/usr/local/share/npm/bin:$PATH
+
 # Source NVM
-. ~/.nvm/nvm.sh
+if [ -e ~/.nvm/ ]; then
+  . ~/.nvm/nvm.sh
+fi
 
 # RBENV stuff
 # export PATH="$HOME/.rbenv/bin:$PATH"

@@ -6,6 +6,9 @@ set autoindent
 set smartindent
 set encoding=utf-8
 
+" correct backspace behavior
+set backspace=2
+
 " show line numbers
 set number
 " toggle line numbers
@@ -93,6 +96,11 @@ let g:ctrlp_working_path_mode = 'ra'
 " Enable/disable cross-session caching
 let g:ctrlp_clear_cache_on_exit = 1
 
+" Ignore
+
+set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip
+
+
 " Plugins go before this
 call vundle#end()            " required
 
@@ -141,6 +149,9 @@ if v:errmsg != ''
 else
   cabbrev hsplit hor split
 endif
+
+" Clipboard
+set clipboard=unnamed
 
 " Set file type to language
 if has("syntax")
