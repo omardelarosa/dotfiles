@@ -66,13 +66,17 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 Plugin 'commentary.vim'
+
+" Clojure
+Plugin 'tpope/vim-fireplace.git'
+
 " JavaScript Syntax Highlight
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
 " Syntastic options
 let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -106,7 +110,6 @@ call vundle#end()            " required
 
 " NERDTree Options
 let NERDTreeMouseMode=2
-
 
 " always load ... "
 " autocmd vimenter * NERDTree "
@@ -157,7 +160,7 @@ set clipboard=unnamed
 if has("syntax")
   syntax on
   filetype on
-  au BufNewFile,BufRead *.jq,*.es,*.jsx set filetype=javascript
+  au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js set filetype=javascript
   au BufNewFile,BufRead *.coffee set filetype=coffee
 endif
 
@@ -168,3 +171,7 @@ set noshowmode
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+
+" set colortheme to koehler
+
+colorscheme koehler
