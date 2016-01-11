@@ -1,11 +1,11 @@
 [user]
-  name = omardelarosa
-  email = thedelarosa@gmail.com
+	name = Omar Delarosa
+	email = thedelarosa@gmail.com
 [color]
   ui = true
 [core]
   editor = vim
-  excludesfile = /Users/odelarosa/.gitignore_global
+	excludesfile = /Users/omardelarosa/.gitignore_global
 [commit]
   template = ~/.gitmessage.txt
 [alias]
@@ -16,7 +16,8 @@
 [merge]
   renamelimit = 7000
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

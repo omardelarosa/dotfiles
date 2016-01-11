@@ -46,6 +46,8 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required! 
 Plugin 'gmarik/vundle'
+Plugin 'fugitive.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " My bundles here:
 "
@@ -74,9 +76,12 @@ Plugin 'tpope/vim-fireplace.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
+
 " Syntastic options
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_coffee_coffeelint_checker = 1
+let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -116,6 +121,9 @@ let NERDTreeMouseMode=2
 
 " only load if no file specified  ... "
 autocmd vimenter * if !argc() | NERDTree | endif
+
+" Autoclose Nerdtree on Fileopen
+let NERDTreeQuitOnOpen=1
 
 " Toggle Nerdtree with Ctrl+n"
 map <C-n> :NERDTreeToggle<CR>
@@ -161,7 +169,7 @@ if has("syntax")
   syntax on
   filetype on
   au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js set filetype=javascript
-  au BufNewFile,BufRead *.coffee set filetype=coffee
+  au BufNewFile,BufRead *.coffee,*.cjsx set filetype=coffee
 endif
 
 " Statusline Customizations
