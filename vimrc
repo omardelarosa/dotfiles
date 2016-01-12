@@ -46,24 +46,18 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required! 
 Plugin 'gmarik/vundle'
-Plugin 'fugitive.vim'
-Plugin 'airblade/vim-gitgutter'
 
 " My bundles here:
 "
-" original repos on GitHub
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'tpope/vim-rails.git'
-" vim-scripts repos
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'ack.vim'
 Plugin 'rking/ag.vim'
-" non-GitHub repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" Ruby Syntax Highlighting
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
