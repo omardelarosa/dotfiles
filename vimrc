@@ -18,6 +18,14 @@ map <C-T><C-T> :set invnumber<CR>
 map <F7> :bp <CR>
 map <F6> :bn <CR>
 
+" Sets go to end of line
+map ,, ^
+" Sets go to start of line
+map .. $
+" Sets toggle between closing/opening brackets
+map mm %
+map <C-m> %
+
 " Incremental Search
 set incsearch
 set hlsearch
@@ -62,7 +70,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 Plugin 'commentary.vim'
-
+Plugin 'closetag'
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
 
@@ -70,6 +78,9 @@ Plugin 'tpope/vim-fireplace.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
+
+" Other stuff
+Plugin 'bendavis78/vim-polymer'
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -174,6 +185,8 @@ python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
 
-" set colortheme to koehler
+" Close tag support for various filetypes
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
 
+" set colortheme to koehler
 colorscheme koehler

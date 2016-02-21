@@ -1,0 +1,6 @@
+*bundle*
+vendor/assets/
+node_modules/
+bower_components/
+.git/
+app/assets/stylesheets/vendor.assets*

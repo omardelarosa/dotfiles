@@ -188,8 +188,10 @@ alias settmux="tmux source-file ~/.tmux.conf"
 #fi
 
 # Python Stuff
-export WORKON_HOME="$HOME/Dropbox/Code/Python/envs"
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+  export WORKON_HOME="$HOME/Dropbox/Code/Python/envs"
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 # Global Go Code Path
 export PATH=$PATH:/usr/local/go/bin
