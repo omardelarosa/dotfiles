@@ -1,10 +1,17 @@
+" Default Tab Prefs
 set shiftwidth=2 softtabstop=2 expandtab smarttab
+
 set nocompatible              " be iMproved
 filetype off                  " required!
 syntax on
 set autoindent
 set smartindent
-set encoding=utf-8
+
+" VMP3 tabs
+" set expandtab
+" set tabstop=4
+" set shiftwidth=4
+" set softtabstop=4
 
 " correct backspace behavior
 set backspace=2
@@ -57,6 +64,10 @@ Plugin 'gmarik/vundle'
 
 " My bundles here:
 "
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Lokaltog/vim-powerline'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
@@ -70,7 +81,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 Plugin 'commentary.vim'
-Plugin 'closetag'
+Plugin 'ctrlpvim/ctrlp.vim'
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
 
@@ -80,7 +91,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
 
 " Other stuff
-Plugin 'bendavis78/vim-polymer'
+Plugin 'wavded/vim-stylus'
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -91,7 +102,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': '[possibly useless use of a variable in void context|interpreted as argument prefix]'}
+    \ {'regex': '[assigned but unused variable|possibly useless use of a variable in void context|interpreted as argument prefix]'}
+let g:syntastic_delayed_redraws=1
 
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -187,6 +199,22 @@ python del powerline_setup
 
 " Close tag support for various filetypes
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+
+" Visually display matching braces
+set showmatch
+
+" Prevent goofy backup files
+set nobackup
+
+" Prevent the creation of swp files, they're just a mess
+set noswapfile
+
+" No bells
+set noerrorbells
+
+" Encoding
+set encoding=utf-8
+set t_Co=256
 
 " set colortheme to koehler
 colorscheme koehler

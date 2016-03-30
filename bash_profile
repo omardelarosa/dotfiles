@@ -1,4 +1,4 @@
-PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
+PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/bin:$PATH
 
 # adding WDI command line tools dir
 export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
@@ -41,6 +41,9 @@ alias getvim="vim ~/.vimrc"
 
 ### spin up ubuntu linux via docker
 alias getlinux="docker run -i -t ubuntu /bin/bash"
+
+### Use macvim
+alias vim='mvim -v'
 
 ### JSON tools
 
