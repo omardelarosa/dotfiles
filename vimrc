@@ -101,8 +101,7 @@ let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': '[assigned but unused variable|possibly useless use of a variable in void context|interpreted as argument prefix]'}
+let g:syntastic_ruby_checkers = [ 'rubocop' ]
 let g:syntastic_delayed_redraws=1
 
 " Ctrl+P

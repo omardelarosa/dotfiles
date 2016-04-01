@@ -14,7 +14,7 @@ dir=~/Code/dotfiles
 olddir=~/dotfiles_old			       
 
 # list of files/folders to symlink in homedir
-files="agignore eslintrc vimrc rspec bash_profile tmux.conf herrie gitconfig" 
+files="rubocop.yml agignore eslintrc vimrc rspec bash_profile tmux.conf herrie gitconfig" 
 
 ##########
 

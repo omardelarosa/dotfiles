@@ -17,6 +17,11 @@ if [ -f ~/.env ]; then
     source ~/.env
 fi
 
+### load local aliases
+if [ -f ~/.aliases ]; then 
+    source ~/.aliases
+fi
+
 if [ -f ~/.aws ]; then 
     source ~/.aws
 fi
