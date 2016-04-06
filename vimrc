@@ -82,6 +82,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 Plugin 'commentary.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
 
@@ -92,6 +93,7 @@ Plugin 'Syntastic'
 
 " Other stuff
 Plugin 'wavded/vim-stylus'
+Plugin 'kylef/apiblueprint.vim'
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -186,6 +188,7 @@ if has("syntax")
   filetype on
   au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js set filetype=javascript
   au BufNewFile,BufRead *.coffee,*.cjsx set filetype=coffee
+  au BufNewFile,BufRead *.apib set filetype=apiblueprint
 endif
 
 " Statusline Customizations
