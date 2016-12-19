@@ -218,6 +218,11 @@ if [ -e ~/.nvm/ ]; then
   . ~/.nvm/nvm.sh
 fi
 
+# Git autocomplete: http://code-worrier.com/blog/autocomplete-git/
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 # RBENV stuff
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"

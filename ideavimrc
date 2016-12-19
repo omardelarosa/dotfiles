@@ -1,0 +1,41 @@
+" Default Tab Prefs
+set shiftwidth=2 softtabstop=2 expandtab smarttab
+
+set nocompatible              " be iMproved
+filetype off                  " required!
+syntax on
+set autoindent
+set smartindent
+
+" VMP3 tabs
+" set expandtab
+" set tabstop=4
+" set shiftwidth=4
+" set softtabstop=4
+
+" correct backspace behavior
+set backspace=2
+
+" show line numbers
+set number
+" toggle line numbers
+map <C-T><C-T> :set invnumber<CR>
+
+" key bindings
+map <F7> :bp <CR>
+map <F6> :bn <CR>
+
+" Sets go to end of line
+map ,, ^
+" Sets go to start of line
+map .. $
+" Sets toggle between closing/opening brackets
+map mm %
+map <C-m> %
+
+" Visually display matching braces
+set showmatch
+
+" Encoding
+set encoding=utf-8
+set t_Co=256

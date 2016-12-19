@@ -90,10 +90,14 @@ Plugin 'tpope/vim-fireplace.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
+Plugin 'posva/vim-vue'
 
 " Other stuff
 Plugin 'wavded/vim-stylus'
 Plugin 'kylef/apiblueprint.vim'
+
+" Elm
+Plugin 'lambdatoast/elm.vim'
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -105,6 +109,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = [ 'rubocop' ]
 let g:syntastic_delayed_redraws=1
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+" Elm
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
 
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -186,9 +196,12 @@ set clipboard=unnamed
 if has("syntax")
   syntax on
   filetype on
-  au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js set filetype=javascript
+  au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js,*.karma set filetype=javascript
   au BufNewFile,BufRead *.coffee,*.cjsx set filetype=coffee
   au BufNewFile,BufRead *.apib set filetype=apiblueprint
+  au BufNewFile,BufRead *.vue set filetype=vue
+  au BufNewFile,BufRead *.styl,*.stylus set filetype=stylus
+  au BufNewFile,BufRead *.elm set filetype=elm
 endif
 
 " Statusline Customizations
