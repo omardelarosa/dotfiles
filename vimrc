@@ -5,6 +5,7 @@ syntax on
 set autoindent
 set smartindent
 set encoding=utf-8
+set noswapfile
 
 " correct backspace behavior
 set backspace=2
@@ -70,7 +71,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 Plugin 'commentary.vim'
-Plugin 'closetag'
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
 
@@ -80,7 +80,9 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
 
 " Other stuff
-Plugin 'bendavis78/vim-polymer'
+Plugin 'ElmCast/elm-vim'
+Plugin 'digitaltoad/vim-pug.git'
+Plugin 'vim-stylus'
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -92,6 +94,19 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': '[possibly useless use of a variable in void context|interpreted as argument prefix]'}
+" Elm Lang
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+let g:elm_jump_to_error = 0
+" let g:elm_make_show_warnings = 0
+let g:elm_syntastic_show_warnings = 0
+" let g:elm_browser_command = ""
+" let g:elm_detailed_complete = 0
+" let g:elm_format_autosave = 0
+let g:elm_setup_keybindings = 1
+let g:elm_classic_highlighting = 1
 
 " Ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -112,8 +127,7 @@ let g:ctrlp_clear_cache_on_exit = 1
 
 " Ignore
 
-set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip
-
+set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,*/dist/*
 
 " Plugins go before this
 call vundle#end()            " required
@@ -173,8 +187,11 @@ set clipboard=unnamed
 if has("syntax")
   syntax on
   filetype on
+  au BufNewFile,BufRead *.pug set filetype=pug
+  au BufNewFile,BufRead *.styl set filetype=stylus
   au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js set filetype=javascript
   au BufNewFile,BufRead *.coffee,*.cjsx set filetype=coffee
+  au BufNewFile,BufRead *.elm set filetype=elm
 endif
 
 " Statusline Customizations
