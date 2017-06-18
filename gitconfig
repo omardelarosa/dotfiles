@@ -4,7 +4,7 @@
 [color]
   ui = true
 [core]
-  editor = vim
+	editor = /usr/local/bin/mvim -v
 	excludesfile = /Users/omardelarosa/.gitignore_global
 [commit]
   template = ~/.gitmessage.txt
@@ -17,7 +17,7 @@
   renamelimit = 7000
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

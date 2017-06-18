@@ -50,6 +50,17 @@ set autoread
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
+" Beautify JS
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" TypeScript options
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+autocmd FileType typescript setlocal completeopt-=menu
+
 " Prevents Git issues with Vundle
 let $GIT_SSL_NO_VERIFY = 'true'
 
@@ -59,7 +70,7 @@ call vundle#begin()
 "colorscheme monokai
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/vundle'
 
 " My bundles here:
@@ -82,6 +93,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'nerdtree-ack'
 Plugin 'commentary.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/vim-js-pretty-template'
 
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
@@ -92,9 +107,21 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
 Plugin 'posva/vim-vue'
 
+" Beautification
+Plugin 'maksimr/vim-jsbeautify'
+
 " Other stuff
 Plugin 'wavded/vim-stylus'
 Plugin 'kylef/apiblueprint.vim'
+Plugin 'jade.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ianks/vim-tsx'
+Plugin 'Shougo/unite.vim'
+Plugin 'mhartington/vim-typings'
+Plugin 'lilydjwg/colorizer'
+
+" Enables auto-pairing closing tags of characters like (, { and [
+Plugin 'jiangmiao/auto-pairs'
 
 " Elm
 Plugin 'lambdatoast/elm.vim'
@@ -110,6 +137,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = [ 'rubocop' ]
 let g:syntastic_delayed_redraws=1
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_completion_detail = 0
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " Elm
 let g:syntastic_always_populate_loc_list = 1
@@ -133,9 +163,13 @@ let g:ctrlp_working_path_mode = 'ra'
 " Enable/disable cross-session caching
 let g:ctrlp_clear_cache_on_exit = 1
 
+" AutoPairing of Parens, etc
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+
 " Ignore
 
-set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib
 
 
 " Plugins go before this
@@ -196,6 +230,8 @@ set clipboard=unnamed
 if has("syntax")
   syntax on
   filetype on
+  au BufNewFile,BufRead *.pug,*.jade set filetype=jade
+  au BufNewFile,BufRead *.ts,*.tsx set filetype=typescript
   au BufNewFile,BufRead *.jq,*.es,*.jsx,*.js,*.karma set filetype=javascript
   au BufNewFile,BufRead *.coffee,*.cjsx set filetype=coffee
   au BufNewFile,BufRead *.apib set filetype=apiblueprint
@@ -213,7 +249,7 @@ python powerline_setup()
 python del powerline_setup
 
 " Close tag support for various filetypes
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.tsx"
 
 " Visually display matching braces
 set showmatch
@@ -230,6 +266,11 @@ set noerrorbells
 " Encoding
 set encoding=utf-8
 set t_Co=256
+
+" Automatically Colorize Hex/RGB values
+" let g:colorizer_auto_color = 1
+" let g:colorizer_auto_filetype = 'css,html,styl,stylus'
+" let g:colorizer_skip_comments = 1
 
 " set colortheme to koehler
 colorscheme koehler

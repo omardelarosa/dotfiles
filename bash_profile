@@ -1,5 +1,9 @@
 PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/bin:$PATH
 
+# Set default EDITOR to vim
+export EDITOR=/usr/local/bin/mvim
+export VISUAL=$EDITOR
+
 # adding WDI command line tools dir
 export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
 
@@ -7,22 +11,22 @@ export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
 # MySQL fix for python
-# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/ 
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 
 # Mopidy Python Fix
 # export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
 
 ### load environment vars
-if [ -f ~/.env ]; then 
+if [ -f ~/.env ]; then
     source ~/.env
 fi
 
 ### load local aliases
-if [ -f ~/.aliases ]; then 
+if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
-if [ -f ~/.aws ]; then 
+if [ -f ~/.aws ]; then
     source ~/.aws
 fi
 
@@ -53,7 +57,7 @@ alias vim='mvim -v'
 ### JSON tools
 
 function pjson() {
-  
+
   # use underscore-cli if available
   if (type underscore &> /dev/null); then
     local json="underscore print --color"
@@ -61,7 +65,7 @@ function pjson() {
   # use python json.tool if not
     local json="python -m json.tool"
   fi
-  
+
   if [[ $1 != "" ]]; then
     cat $1 | $json
   else
@@ -166,7 +170,7 @@ function wdi() {
     local WEEK_STRING="/w$WEEK_NUM"
     local DAY_STRING="/d$DAY_NUM"
     if [ -e $BASE_PATH$WEEK_STRING$DAY_STRING ]
-    then 
+    then
       cd $BASE_PATH$WEEK_STRING$DAY_STRING;
     else
       cd $BASE_PATH
@@ -176,7 +180,7 @@ function wdi() {
       then cd $BASE_PATH
     elif [ "$WEEK_NUM" == "curriculum" ]
       then cd $WDI_PATH/wdi-next/WDI_Curriculum
-   else 
+   else
       cd $BASE_PATH
     fi
   fi

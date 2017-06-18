@@ -1,0 +1,28 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[**.js]
+path=~/.vim/bundle/vim-jsbeautify/plugin/lib/js/lib/beautify.js
+bin=node
+index_style = space
+indent_size = 2
+
+[**.css]
+path=~/.vim/bundle/vim-jsbeautify/plugin/lib/js/lib/beautify-css.js
+indent_style = space
+indent_size = 2
+
+[**.html]
+path=~/.vim/bundle/vim-jsbeautify/plugin/lib/js/lib/beautify-html.js
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
