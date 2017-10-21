@@ -1,8 +1,5 @@
 PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
 
-# adding WDI command line tools dir
-export PATH=/Users/omardelarosa/Dropbox/Code/WDI/command_line_tools/bin:$PATH
-
 # adding home bin to path
 export PATH=$HOME/bin:$PATH
 
@@ -19,6 +16,11 @@ fi
 
 if [ -f ~/.aws ]; then 
     source ~/.aws
+fi
+
+### load aliases
+if [ -f ~/.aliases ]; then 
+    source ~/.aliases
 fi
 
 if [ -f ~/.other_shortcuts ]; then
@@ -174,7 +176,7 @@ function wdi() {
   fi
 }
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+## [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Defaults to tmux.
 
@@ -188,10 +190,10 @@ alias settmux="tmux source-file ~/.tmux.conf"
 #fi
 
 # Python Stuff
-if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
-  export WORKON_HOME="$HOME/Dropbox/Code/Python/envs"
-  source /usr/local/bin/virtualenvwrapper.sh
-fi
+# if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+#   export WORKON_HOME="$HOME/Dropbox/Code/Python/envs"
+#   source /usr/local/bin/virtualenvwrapper.sh
+# fi
 
 # Global Go Code Path
 export PATH=$PATH:/usr/local/go/bin

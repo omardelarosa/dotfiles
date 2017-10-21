@@ -4,3 +4,6 @@ node_modules/
 bower_components/
 .git/
 app/assets/stylesheets/vendor.assets*
+dist/
+/Users/omardelarosa/Code/vclamp/src/web/lib/
+yarn.lock
