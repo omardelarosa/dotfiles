@@ -4,22 +4,22 @@ PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/Mac
 export PATH=$HOME/bin:$PATH
 
 # MySQL fix for python
-# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/ 
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 
 # Mopidy Python Fix
 # export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
 
 ### load environment vars
-if [ -f ~/.env ]; then 
+if [ -f ~/.env ]; then
     source ~/.env
 fi
 
-if [ -f ~/.aws ]; then 
+if [ -f ~/.aws ]; then
     source ~/.aws
 fi
 
 ### load aliases
-if [ -f ~/.aliases ]; then 
+if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
@@ -47,7 +47,7 @@ alias getlinux="docker run -i -t ubuntu /bin/bash"
 ### JSON tools
 
 function pjson() {
-  
+
   # use underscore-cli if available
   if (type underscore &> /dev/null); then
     local json="underscore print --color"
@@ -55,7 +55,7 @@ function pjson() {
   # use python json.tool if not
     local json="python -m json.tool"
   fi
-  
+
   if [[ $1 != "" ]]; then
     cat $1 | $json
   else
@@ -122,7 +122,7 @@ function parse_git_branch() {
 }
 
 # Prompt 1: "username@hostname:"
-PS1="\[$(tput setaf 1)\]\e[\e[34;40m\u\e[m@\e[31;40m\h\e[m:\]"
+PS1="\[$(tput setaf 1)\]\e[\e[34;40m\u\e[m@"
 
 # Prompt 2: "path/to/where/you/are"
 PS1="$PS1\e[32;40m\w\e[m"
@@ -160,7 +160,7 @@ function wdi() {
     local WEEK_STRING="/w$WEEK_NUM"
     local DAY_STRING="/d$DAY_NUM"
     if [ -e $BASE_PATH$WEEK_STRING$DAY_STRING ]
-    then 
+    then
       cd $BASE_PATH$WEEK_STRING$DAY_STRING;
     else
       cd $BASE_PATH
@@ -170,7 +170,7 @@ function wdi() {
       then cd $BASE_PATH
     elif [ "$WEEK_NUM" == "curriculum" ]
       then cd $WDI_PATH/wdi-next/WDI_Curriculum
-   else 
+   else
       cd $BASE_PATH
     fi
   fi
@@ -215,3 +215,4 @@ fi
 # RBENV stuff
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -122,6 +122,7 @@ Plugin 'ianks/vim-tsx'
 Plugin 'Shougo/unite.vim'
 Plugin 'mhartington/vim-typings'
 Plugin 'lilydjwg/colorizer'
+Plugin 'tpope/vim-surround' " enables surrounding of string with some type of grouping char
 
 " Enables auto-pairing closing tags of characters like (, { and [
 Plugin 'jiangmiao/auto-pairs'
@@ -175,7 +176,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " Ignore
 
-set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib
+set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib,/Users/omardelarosa/Code/vclamp/src/web-core/lib
 
 
 " Plugins go before this
