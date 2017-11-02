@@ -50,17 +50,6 @@ set autoread
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" Beautify JS
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
-
-" TypeScript options
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-autocmd FileType typescript setlocal completeopt-=menu
-
 " Prevents Git issues with Vundle
 let $GIT_SSL_NO_VERIFY = 'true'
 
@@ -96,7 +85,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/vim-js-pretty-template'
 
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
@@ -109,6 +97,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Syntastic'
 Plugin 'posva/vim-vue'
+Plugin 'Quramy/vim-js-pretty-template'
 
 " Beautification
 Plugin 'maksimr/vim-jsbeautify'
@@ -146,8 +135,8 @@ let g:tsuquyomi_completion_detail = 0
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " YouCompleteMe Autocomplete
-let g:ycm_min_num_of_chars_for_completion = 3
-
+let g:ycm_min_num_of_chars_for_completion = 99
+let g:ycm_min_num_identifier_candidate_chars = 1
 " Elm
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -246,6 +235,28 @@ if has("syntax")
   au BufNewFile,BufRead *.styl,*.stylus set filetype=stylus
   au BufNewFile,BufRead *.elm set filetype=elm
 endif
+
+" Syntax Highlight Template Literals In JS
+autocmd FileType javascript JsPreTmpl html
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType javascript JsPreTmpl css
+autocmd FileType typescript JsPreTmpl css
+autocmd FileType typescript syn clear foldBraces
+
+" Beautify JS
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" TypeScript options
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+autocmd FileType typescript setlocal completeopt-=menu
+
+" SpellChecking
+setlocal spell spelllang=en_us
+autocmd FileType * sy spell notoplevel
 
 " Statusline Customizations
 set laststatus=2
