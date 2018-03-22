@@ -132,7 +132,7 @@ function parse_git_branch() {
 }
 
 # Prompt 1: "username@hostname:"
-PS1="\[$(tput setaf 1)\]\e[\e[34;40m\u\e[m@\e[31;40m\h\e[m:\]"
+PS1="\[$(tput setaf 1)\]\e[\e[34;40m\u\e[m@"
 
 # Prompt 2: "path/to/where/you/are"
 PS1="$PS1\e[32;40m\w\e[m"
@@ -230,3 +230,4 @@ fi
 # RBENV stuff
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

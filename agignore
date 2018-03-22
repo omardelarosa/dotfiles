@@ -6,4 +6,13 @@ bower_components/
 app/assets/stylesheets/vendor.assets*
 dist/
 /Users/omardelarosa/Code/vclamp/src/web/lib/
+/Users/omardelarosa/Code/vclamp/src/web-core/lib/
+lib/server.js
+lib/server.map
+lib/agent.js
+lib/agent.map
+lib/routes.js
+lib/routes.map
+lib/client-routes.js
+lib/client-routes.map
 yarn.lock

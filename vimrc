@@ -59,7 +59,9 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " TypeScript options
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-autocmd FileType typescript setlocal completeopt-=menu
+autocmd FileType typescript setlocal completeopt-=menu,preview
+
+let g:tsuquyomi_disable_default_mappings = 1
 
 " Prevents Git issues with Vundle
 let $GIT_SSL_NO_VERIFY = 'true'
@@ -97,6 +99,10 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'tpope/vim-surround'
+
+" C++
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " Clojure
 Plugin 'tpope/vim-fireplace.git'
@@ -128,7 +134,7 @@ Plugin 'lambdatoast/elm.vim'
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['tslint']
 let g:syntastic_coffee_coffeelint_checker = 1
 let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
 let g:syntastic_always_populate_loc_list = 1
@@ -169,7 +175,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " Ignore
 
-set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib
+set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib,/Users/omardelarosa/Code/vclamp/src/web-core/lib
 
 
 " Plugins go before this
@@ -223,6 +229,13 @@ else
   cabbrev hsplit hor split
 endif
 
+" YouCompleteMe options
+let g:ycm_auto_trigger = 0
+let g:ycm_extra_conf_globlist = ['~/Code/vclamp/src/web/lib/*','!~/Code/vclamp/src/web-core/lib/*']
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 0
+
 " Clipboard
 set clipboard=unnamed
 
@@ -249,7 +262,7 @@ python powerline_setup()
 python del powerline_setup
 
 " Close tag support for various filetypes
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.tsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Visually display matching braces
 set showmatch
