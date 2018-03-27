@@ -1,5 +1,23 @@
-" Default Tab Prefs
-set shiftwidth=2 softtabstop=2 expandtab smarttab
+" Visually display matching braces
+set showmatch
+
+" Prevent goofy backup files
+set nobackup
+
+" Prevent the creation of swp files, they're just a mess
+set noswapfile
+
+" No bells
+set noerrorbells
+
+" Encoding
+set encoding=utf-8
+set t_Co=256
+
+" Automatically Colorize Hex/RGB values
+" let g:colorizer_auto_color = 1
+" let g:colorizer_auto_filetype = 'css,html,styl,stylus'
+" let g:colorizer_skip_comments = 1
 
 set nocompatible              " be iMproved
 filetype off                  " required!
@@ -48,76 +66,62 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Autoreads the file on changes
 set autoread
 
-set rtp+=~/.vim/bundle/Vundle.vim
+" Allows clipboard sharing
+set clipboard=unnamed
 
-" Prevents Git issues with Vundle
-let $GIT_SSL_NO_VERIFY = 'true'
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
-"Plugings go after this
+Plug 'vim-syntastic/syntastic'
+Plug 'dag/vim-fish'
 
-"colorscheme monokai
-
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/vundle'
-
-" My bundles here:
-"
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'Lokaltog/vim-powerline'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'tpope/vim-rails.git'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'ack.vim'
-Plugin 'rking/ag.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nerdtree-ack'
-Plugin 'commentary.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Shougo/vimproc.vim'
-
-" Clojure
-Plugin 'tpope/vim-fireplace.git'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Lokaltog/vim-powerline'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rking/ag.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
 " C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " JavaScript Syntax Highlight
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Syntastic'
-Plugin 'posva/vim-vue'
-Plugin 'Quramy/vim-js-pretty-template'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'posva/vim-vue'
+Plug 'Quramy/vim-js-pretty-template'
 
 " Beautification
-Plugin 'maksimr/vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify'
 
 " Other stuff
-Plugin 'wavded/vim-stylus'
-Plugin 'kylef/apiblueprint.vim'
-Plugin 'jade.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ianks/vim-tsx'
-Plugin 'Shougo/unite.vim'
-Plugin 'mhartington/vim-typings'
-Plugin 'lilydjwg/colorizer'
-Plugin 'tpope/vim-surround' " enables surrounding of string with some type of grouping char
+Plug 'wavded/vim-stylus'
+Plug 'kylef/apiblueprint.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'ianks/vim-tsx'
+Plug 'Shougo/unite.vim'
+Plug 'mhartington/vim-typings'
+Plug 'lilydjwg/colorizer'
+Plug 'tpope/vim-surround' " enables surrounding of string with some type of grouping char
+Plug 'powerline/powerline'
 
 " Enables auto-pairing closing tags of characters like (, { and [
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Elm
-Plugin 'lambdatoast/elm.vim'
+Plug 'lambdatoast/elm.vim'
+
+call plug#end()
+
 
 " Syntastic options
 let g:syntastic_check_on_open = 1
@@ -162,14 +166,6 @@ let g:ctrlp_clear_cache_on_exit = 1
 " AutoPairing of Parens, etc
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<M-b>'
-
-" Ignore
-
-set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib,/Users/omardelarosa/Code/vclamp/src/web-core/lib
-
-
-" Plugins go before this
-call vundle#end()            " required
 
 " NERDTree Options
 let NERDTreeMouseMode=2
@@ -219,6 +215,11 @@ else
   cabbrev hsplit hor split
 endif
 
+" Set ag as default grep program
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 " Clipboard
 set clipboard=unnamed
 
@@ -262,9 +263,6 @@ autocmd FileType * sy spell notoplevel
 set laststatus=2
 set ambiwidth=single
 set noshowmode
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
 " Close tag support for various filetypes
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.tsx"
