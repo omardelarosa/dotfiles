@@ -1,0 +1,77 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+.",
+        "command": "cursorEnd",
+    },
+    {
+        "key": "ctrl+,",
+        "command": "cursorHome",
+    },
+    {
+        "key": "shift+right",
+        "command": "cursorWordEndRight",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "shift+left",
+        "command": "cursorWordEndLeft",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "shift+cmd+enter",
+        "command": "workbench.action.toggleZenMode"
+    },
+    {
+        "key": "cmd+k z",
+        "command": "-workbench.action.toggleZenMode"
+    },
+    {
+        "key": "shift+cmd+enter",
+        "command": "-editor.action.insertLineBefore",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+enter",
+        "command": "-editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+enter",
+        "command": "workbench.action.toggleFullScreen"
+    },
+    {
+        "key": "ctrl+cmd+f",
+        "command": "-workbench.action.toggleFullScreen"
+    },
+    {
+        "key": "shift+down",
+        "command": "-cursorDownSelect",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "shift+up",
+        "command": "-cursorUpSelect",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "shift+down",
+        "command": "multiCommand.down5Lines",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "shift+up",
+        "command": "multiCommand.up5Lines",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "-editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+]
