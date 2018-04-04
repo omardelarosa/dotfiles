@@ -1,0 +1,71 @@
+{
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/jspm_packages": true,
+    "**/.tmp": true,
+    "**/vendor": true,
+    "**/coverage/**/*": true,
+    "**/compiled-libraries": true,
+    "**/dist": true,
+    "**/img": true,
+    "**/fonts": true,
+    "**/jasmine-reports": true,
+    "**/typings/**/*": true,
+    "**/.sass-cache/**/*": true,
+    "**/.vscode/**/*": true,
+    "**/build/**/*": true,
+    "**/preprocessed/**/*": true,
+    "**/tools/**/*": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "editor.renderIndentGuides": true,
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 1,
+  "editor.wordWrap": "off",
+  "workbench.startupEditor": "newUntitledFile",
+  "extensions.ignoreRecommendations": false,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true,
+    "suppressUpdateNotice": false,
+    "suppressWelcomeNotice": true
+  },
+  "explorer.confirmDelete": false,
+  "gitlens.keymap": "none",
+  "editor.formatOnSave": true,
+  "html.format.wrapLineLength": 0,
+  // Vim stuff
+  "vim.useSystemClipboard": true,
+  "vim.cmdLineInitialColon": true,
+  // Multicommands
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.down5Lines",
+      "sequence": [
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown"
+      ]
+    },
+    {
+      "command": "multiCommand.up5Lines",
+      "sequence": ["cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp"]
+    }
+  ],
+  "html.format.enable": true,
+  // Beautifuy
+  "beautify.language": {
+    "html": ["htm", "html"]
+  },
+  "gitlens.historyExplorer.enabled": true
+}
