@@ -54,18 +54,27 @@
         "cursorDown",
         "cursorDown",
         "cursorDown",
-        "cursorDown"
+        "cursorDown",
       ]
     },
     {
       "command": "multiCommand.up5Lines",
-      "sequence": ["cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp"]
-    }
+      "sequence": [
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp"
+      ]
+    },
   ],
   "html.format.enable": true,
   // Beautifuy
-  "beautify.language": {
-    "html": ["htm", "html"]
-  },
+  // "beautify.language": {
+  //     "html": [
+  //         "htm",
+  //         "html"
+  //     ]
+  // },
   "gitlens.historyExplorer.enabled": true
 }

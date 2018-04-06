@@ -2,11 +2,11 @@
 [
   {
     "key": "ctrl+.",
-    "command": "cursorEnd"
+    "command": "cursorEnd",
   },
   {
     "key": "ctrl+,",
-    "command": "cursorHome"
+    "command": "cursorHome",
   },
   {
     "key": "shift+right",
