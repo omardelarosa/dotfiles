@@ -1,7 +1,7 @@
 PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
 
-# adding home bin to path
-export PATH=$HOME/bin:$PATH
+# adding home bin and yarn bin to path
+export PATH=$HOME/bin:$HOME/.yarn/bin:$PATH
 
 # MySQL fix for python
 # export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
@@ -25,6 +25,11 @@ fi
 
 if [ -f ~/.other_shortcuts ]; then
   source ~/.other_shortcuts
+fi
+
+### Git Completion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
 fi
 
 ### Command Shortcuts

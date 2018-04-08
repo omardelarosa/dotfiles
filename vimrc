@@ -7,12 +7,6 @@ syntax on
 set autoindent
 set smartindent
 
-" VMP3 tabs
-" set expandtab
-" set tabstop=4
-" set shiftwidth=4
-" set softtabstop=4
-
 " correct backspace behavior
 set backspace=2
 
@@ -20,6 +14,9 @@ set backspace=2
 set number
 " toggle line numbers
 map <C-T><C-T> :set invnumber<CR>
+
+" Switch panes
+map <M-Right> <C-w>w
 
 " key bindings
 map <F7> :bp <CR>
@@ -32,6 +29,12 @@ map .. $
 " Sets toggle between closing/opening brackets
 map mm %
 map <C-m> %
+
+"Sets goto
+map gtf :YcmCompleter GoToDefinition<CR>
+map gtt :YcmCompleter GoToDeclaration<CR>
+map gt :YcmCompleter Goto<CR>
+
 
 " Incremental Search
 set incsearch
@@ -101,6 +104,7 @@ Plugin 'Quramy/vim-js-pretty-template'
 
 " Beautification
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'prettier/vim-prettier'
 
 " Other stuff
 Plugin 'wavded/vim-stylus'
@@ -112,6 +116,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'mhartington/vim-typings'
 Plugin 'lilydjwg/colorizer'
 Plugin 'tpope/vim-surround' " enables surrounding of string with some type of grouping char
+Plugin 'dag/vim-fish' " enables fish shell support
 
 " Enables auto-pairing closing tags of characters like (, { and [
 Plugin 'jiangmiao/auto-pairs'
@@ -134,9 +139,6 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:tsuquyomi_completion_detail = 0
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-" YouCompleteMe Autocomplete
-let g:ycm_min_num_of_chars_for_completion = 99
-let g:ycm_min_num_identifier_candidate_chars = 1
 " Elm
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -165,7 +167,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " Ignore
 
-set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib,/Users/omardelarosa/Code/vclamp/src/web-core/lib
+set wildignore+=*/tmp/*,*/public/assets/*,*/vendor/assets/*,*/node_modules/*,*.so,*.swp,*.zip,/Users/omardelarosa/Code/vclamp/src/web/lib,/Users/omardelarosa/Code/vclamp/src/web-core/lib,/Users/omardelarosa/Code/vclamp/src/web-core/coverage,*/tsDist/*
 
 
 " Plugins go before this
@@ -232,8 +234,10 @@ if has("syntax")
   au BufNewFile,BufRead *.coffee,*.cjsx set filetype=coffee
   au BufNewFile,BufRead *.apib set filetype=apiblueprint
   au BufNewFile,BufRead *.vue set filetype=vue
-  au BufNewFile,BufRead *.styl,*.stylus set filetype=stylus
+  au BufNewFile,BufRead *.styl,*.stylus,*.sjsx set filetype=stylus
   au BufNewFile,BufRead *.elm set filetype=elm
+  au BufNewFile,BufRead *.cpp set filetype=cpp
+  au BufNewFile,BufRead *.fish set filetype=fish
 endif
 
 " Syntax Highlight Template Literals In JS
@@ -241,6 +245,11 @@ autocmd FileType javascript JsPreTmpl html
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType javascript JsPreTmpl css
 autocmd FileType typescript JsPreTmpl css
+autocmd FileType javascript JsPreTmpl markdown
+autocmd FileType typescript JsPreTmpl markdown
+autocmd FileType javascript JsPreTmpl stylus
+autocmd FileType typescript JsPreTmpl stylus
+
 autocmd FileType typescript syn clear foldBraces
 
 " Beautify JS
@@ -253,6 +262,24 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 " TypeScript options
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 autocmd FileType typescript setlocal completeopt-=menu
+
+" YouCompleteMe Autocomplete
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_identifier_candidate_chars = 3
+
+" Autoclose window after completion
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+let g:ycm_filetype_whitelist = { '*': 1 }
+let g:ycm_filetype_blacklist = {
+      \ 'markdown': 1,
+      \ 'text': 1,
+      \ 'json': 1
+      \}
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+
 
 " SpellChecking
 setlocal spell spelllang=en_us
@@ -292,3 +319,13 @@ set t_Co=256
 
 " set colortheme to koehler
 colorscheme koehler
+
+" Load language specific configutarions
+autocmd! BufNewFile,BufReadPre,FileReadPre *.cpp so ~/.vim/cpp.vim
+autocmd! BufNewFile,BufReadPre,FileReadPre *.h so ~/.vim/cpp.vim
+" autocmd! BufNewFile,BufReadPre,FileReadPre *.ts so ~/.vim/tsx.vim
+" autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx so ~/.vim/tsx.vim
+" autocmd! BufNewFile,BufReadPre,FileReadPre *.js so ~/.vim/js.vim
+
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync

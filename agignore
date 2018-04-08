@@ -4,7 +4,10 @@ node_modules/
 bower_components/
 .git/
 app/assets/stylesheets/vendor.assets*
+coverage/
 dist/
+tsDist/
 lib/
 static_assets/libraries/
 yarn.lock
+fixtures*
