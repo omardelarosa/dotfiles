@@ -1,6 +1,18 @@
 {
-  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
-  "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  "markdown-pdf.styles": [],
+  "python.pythonPath": "python3",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  // "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  // "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
   "search.exclude": {
     "**/node_modules": true,
     "**/jspm_packages": true,
@@ -26,18 +38,6 @@
   "editor.wordWrap": "off",
   "workbench.startupEditor": "newUntitledFile",
   "extensions.ignoreRecommendations": false,
-  "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false,
-    "suppressCommitNotFoundWarning": false,
-    "suppressFileNotUnderSourceControlWarning": false,
-    "suppressGitVersionWarning": false,
-    "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressResultsExplorerNotice": false,
-    "suppressShowKeyBindingsNotice": true,
-    "suppressUpdateNotice": false,
-    "suppressWelcomeNotice": true
-  },
   "explorer.confirmDelete": false,
   "gitlens.keymap": "none",
   "editor.formatOnSave": true,
@@ -69,6 +69,19 @@
     },
   ],
   "html.format.enable": true,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors": {
+    "normal": [
+      "#8FBCBB",
+      "#434C5E"
+    ],
+    "insert": "#BF616A",
+    "visual": "#B48EAD",
+    "visualline": "#B48EAD",
+    "visualblock": "#A3BE8C",
+    "replace": "#D08770"
+  },
+  "vim.easymotion": true,
   // Beautifuy
   // "beautify.language": {
   //     "html": [
@@ -76,5 +89,10 @@
   //         "html"
   //     ]
   // },
-  "gitlens.historyExplorer.enabled": true
+  "gitlens.historyExplorer.enabled": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#B48EAD",
+    "statusBar.noFolderBackground": "#B48EAD",
+    "statusBar.debuggingBackground": "#B48EAD"
+  }
 }

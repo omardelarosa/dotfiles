@@ -21,12 +21,12 @@
   {
     "key": "shift+right",
     "command": "cursorWordEndRightSelect",
-    "when": "editorTextFocus && vim.active && vim.mode == 'visual'"
+    "when": "editorTextFocus && vim.active && vim.mode == 'normal'"
   },
   {
     "key": "shift+left",
     "command": "cursorWordEndLeftSelect",
-    "when": "editorTextFocus && vim.active && vim.mode == 'visual'"
+    "when": "editorTextFocus && vim.active && vim.mode == 'normal'"
   },
   {
     "key": "shift+cmd+enter",
