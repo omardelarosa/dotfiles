@@ -11,12 +11,22 @@
     {
         "key": "shift+right",
         "command": "cursorWordEndRight",
-        "when": "editorTextFocus && vim.active"
+        "when": "editorTextFocus && vim.active && vim.mode != 'visual'"
     },
     {
         "key": "shift+left",
         "command": "cursorWordEndLeft",
-        "when": "editorTextFocus && vim.active"
+        "when": "editorTextFocus && vim.active && vim.mode != 'visual'"
+    },
+    {
+        "key": "shift+right",
+        "command": "cursorWordEndRightSelect",
+        "when": "editorTextFocus && vim.active && vim.mode == 'visual'"
+    },
+    {
+        "key": "shift+left",
+        "command": "cursorWordEndLeftSelect",
+        "when": "editorTextFocus && vim.active && vim.mode == 'visual'"
     },
     {
         "key": "shift+cmd+enter",
@@ -44,26 +54,26 @@
         "key": "ctrl+cmd+f",
         "command": "-workbench.action.toggleFullScreen"
     },
-    {
-        "key": "shift+down",
-        "command": "-cursorDownSelect",
-        "when": "editorTextFocus && vim.active"
-    },
-    {
-        "key": "shift+up",
-        "command": "-cursorUpSelect",
-        "when": "editorTextFocus && vim.active"
-    },
-    {
-        "key": "shift+down",
-        "command": "multiCommand.down5Lines",
-        "when": "editorTextFocus && vim.active"
-    },
-    {
-        "key": "shift+up",
-        "command": "multiCommand.up5Lines",
-        "when": "editorTextFocus && vim.active"
-    },
+    // {
+    //     "key": "shift+down",
+    //     "command": "-cursorDownSelect",
+    //     "when": "editorTextFocus && vim.active"
+    // },
+    // {
+    //     "key": "shift+up",
+    //     "command": "-cursorUpSelect",
+    //     "when": "editorTextFocus && vim.active"
+    // },
+    // {
+    //     "key": "shift+down",
+    //     "command": "multiCommand.down5Lines",
+    //     "when": "editorTextFocus && vim.active"
+    // },
+    // {
+    //     "key": "shift+up",
+    //     "command": "multiCommand.up5Lines",
+    //     "when": "editorTextFocus && vim.active"
+    // },
     {
         "key": "ctrl+m",
         "command": "editor.action.jumpToBracket",
@@ -74,4 +84,13 @@
         "command": "-editor.action.jumpToBracket",
         "when": "editorTextFocus"
     },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    }
 ]

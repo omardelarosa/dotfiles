@@ -33,11 +33,13 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
     "explorer.confirmDelete": false,
-    "gitlens.keymap": "alternate",
+    "gitlens.keymap": "none",
     "editor.formatOnSave": true,
     "html.format.wrapLineLength": 0,
     // Vim stuff
@@ -65,5 +67,14 @@
                 "cursorUp"
             ]
         },
-    ]
+    ],
+    "html.format.enable": true,
+    // Beautifuy
+    // "beautify.language": {
+    //     "html": [
+    //         "htm",
+    //         "html"
+    //     ]
+    // },
+    "gitlens.historyExplorer.enabled": true
 }
