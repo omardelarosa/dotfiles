@@ -1,5 +1,8 @@
 PATH=/usr/local/bin:/usr/local/mysql/lib:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/mysql/bin:$PATH
 
+# adding cargo to path
+PATH=/Users/omardelarosa/.cargo/bin:$PATH
+
 # adding home bin and yarn bin to path
 export PATH=$HOME/bin:$HOME/.yarn/bin:$PATH
 
@@ -35,6 +38,7 @@ fi
 ### Command Shortcuts
 alias ll="ls -al"
 alias cpdir="cp -R"
+alias vim="nvim"
 
 ### get bash profile quickly
 alias getbash="vim ~/.bash_profile"
@@ -44,7 +48,7 @@ alias setbash="source ~/.bash_profile"
 alias getenv="vim ~/.env"
 
 ### get vimrc quickly
-alias getvim="vim ~/.vimrc"
+alias getvim="vim ~/.config/nvim/init.vim"
 
 ### spin up ubuntu linux via docker
 alias getlinux="docker run -i -t ubuntu /bin/bash"

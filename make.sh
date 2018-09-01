@@ -6,17 +6,20 @@
 ############################
 
 ########## Variables
- 
+
 # dotfiles directory
-dir=~/Dropbox/Code/dotfiles 
+dir=~/Dropbox/Code/dotfiles
 
 # old dotfiles backup directory
-olddir=~/dotfiles_old			       
+olddir=~/dotfiles_old
 vimolddir=~/.vim/vimfiles_old
+oldfishdir=~/.config/fishfiles_old
 
 # list of files/folders to symlink in homedir
-files="agignore eslintrc vimrc rspec bash_profile tmux.conf herrie gitconfig" 
+files="agignore eslintrc vimrc rspec bash_profile tmux.conf herrie gitconfig"
+fishfiles="config.fish env.fish"
 vimfiles="ycm_extra_conf.py cpp.vim"
+configfiles="powerline-shell.json"
 
 ##########
 
@@ -35,7 +38,7 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
   echo "moving any existing dotfiles from ~ to $olddir"
   mv ~/.$file $olddir
@@ -50,3 +53,12 @@ for file in $vimfiles; do
   ln -s $dir/vim/$file ~/.vim/$file
 done
 
+# Fish files
+for fishfile in $fishfiles; do
+  echo "moving any fish files from ~ to $fishfilesold"
+  mv ~/.config/fish/$fishfile $fishfiles_old
+  echo "create fishfile symlink to $fishfile in ~/.config/fish directory"
+  ln -s $dir/$fishfile ~/.config/fish/$fishfile
+done
+
+# Config files

@@ -1,0 +1,15 @@
+{
+  "segments": [
+    "virtual_env",
+    "ssh",
+    "time",
+    "cwd",
+    "git",
+    "hg",
+    "jobs",
+    "root"
+  ],
+  "cwd": {
+    "max_depth": 2
+  }
+}
